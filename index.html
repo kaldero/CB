@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Clientele Boosters | Think Mega – Dark</title>
-  <!-- Swiper CSS (lightweight) -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     /* ========== GLOBAL RESET & DARK THEME ========== */
@@ -911,6 +911,117 @@
       transform: translateY(-2px);
     }
 
+    /* ========== FOOTER SECTION ========== */
+    .footer {
+      background: #0f1119;
+      border-top: 1px solid #1e2432;
+      padding: 60px 32px 30px;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-col h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #f05a28);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 16px;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .footer-col h4:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #f05a28;
+      border-radius: 2px;
+    }
+    .footer-hours {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      color: #cbd5e6;
+    }
+    .footer-hours i {
+      color: #f05a28;
+      width: 24px;
+    }
+    .footer-mission {
+      color: #b9c3d9;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    .footer-services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+    }
+    .footer-services-list li {
+      font-size: 0.9rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+      cursor: default;
+    }
+    .footer-services-list li:hover {
+      color: #f05a28;
+      transform: translateX(3px);
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: #cbd5e6;
+    }
+    .footer-contact-item i {
+      color: #f05a28;
+      width: 24px;
+      font-size: 1.1rem;
+    }
+    .footer-contact-item a {
+      color: #cbd5e6;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .footer-contact-item a:hover {
+      color: #f05a28;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #1e2432;
+      font-size: 0.85rem;
+      color: #7e8aa2;
+    }
+    @media (max-width: 800px) {
+      .footer-services-list {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        gap: 32px;
+      }
+    }
+
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
       .hero-left h1 { font-size: 70px; white-space: normal; }
@@ -992,7 +1103,7 @@
       </p>
       <button class="btn-work" id="workWithUsBtn">WORK WITH US →</button>
     </div>
-    <!-- ENHANCED MEGA COMMUNITIES CARD (with animation & counters) -->
+    <!-- ENHANCED MEGA COMMUNITIES CARD -->
     <div class="connection-right animate-on-scroll" id="megaCommunityCard">
       <div class="right-icon">🌍</div>
       <div class="right-highlight">MEGA COMMUNITIES IN ACTION</div>
@@ -1008,7 +1119,7 @@
   </div>
 </div>
 
-<!-- OUR SERVICES TABS (6 tabs) -->
+<!-- OUR SERVICES TABS -->
 <div class="services-section">
   <div class="services-container">
     <div class="section-title">Our Services</div>
@@ -1112,7 +1223,7 @@
   </div>
 </div>
 
-<!-- MEET OUR TEAM (9 members) -->
+<!-- MEET OUR TEAM -->
 <div class="team-section">
   <div class="team-container">
     <div class="team-title">MEET OUR TEAM.</div>
@@ -1161,6 +1272,47 @@
   </div>
 </div>
 
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Column 1: Brand & Mission -->
+      <div class="footer-col">
+        <h3>CLIENTELE BOOSTERS</h3>
+        <div class="footer-hours"><i class="fas fa-clock"></i> Monday – Sunday – 24/7</div>
+        <div class="footer-mission">
+          Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.
+        </div>
+      </div>
+      <!-- Column 2: Our Services List (matching the image) -->
+      <div class="footer-col">
+        <h4>OUR SERVICES</h4>
+        <ul class="footer-services-list">
+          <li>Social Media Domination</li>
+          <li>Content Creation (End-to-End)</li>
+          <li>Precision Paid Ads</li>
+          <li>Full Funnel Development</li>
+          <li>Web/App Development</li>
+          <li>Virtual Assistants</li>
+          <li>Sales Enablement and Training</li>
+          <li>Strategic Consulting</li>
+          <li>Branded Episodic Content</li>
+        </ul>
+      </div>
+      <!-- Column 3: Location & Contact -->
+      <div class="footer-col">
+        <h4>LOCATION</h4>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+61468655316">+61 468 655 316</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i> <a href="mailto:damiokedara@clienteleboosters.net">damiokedara@clienteleboosters.net</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Clientele Boosters – All rights reserved. Built with 💜 in Australia.
+    </div>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   // Swiper Carousel
@@ -1172,7 +1324,7 @@
     breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
   });
 
-  // Intersection Observer for "Mega Communities" counters & visibility
+  // Intersection Observer for Mega Communities counters
   const card = document.getElementById('megaCommunityCard');
   let counted = false;
   const observer = new IntersectionObserver((entries) => {
@@ -1237,7 +1389,7 @@
   document.getElementById('getInTouchBtn')?.addEventListener('click', () => alert("Thanks for reaching out! We'll get back to you within 24 hours."));
   document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
 
-  // Tab switching
+  // Tabs logic
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panes = document.querySelectorAll('.tab-pane');
   tabBtns.forEach(btn => {
