@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Clientele Boosters | Think Mega – Dark</title>
-  <!-- Swiper CSS -->
+  <!-- Swiper CSS (lightweight) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
-    /* ========== ALL PREVIOUS STYLES ARE PRESERVED ========== */
+    /* ========== GLOBAL RESET & DARK THEME ========== */
     * {
       margin: 0;
       padding: 0;
@@ -21,7 +21,7 @@
       line-height: 1.4;
     }
 
-    /* header – dark version with logo, centered menu, right button */
+    /* ========== HEADER (logo left, menu center, button right) ========== */
     .top-bar {
       background: #0f1119;
       border-bottom: 1px solid #1e2432;
@@ -82,7 +82,7 @@
       transform: translateY(-2px);
     }
 
-    /* HERO SECTION with background image and bounce animations */
+    /* ========== HERO SECTION WITH BOUNCE ANIMATIONS ========== */
     .hero {
       max-width: 1000px;
       margin: 0 auto;
@@ -94,10 +94,6 @@
       background-blend-mode: overlay;
     }
 
-    .hero-left {
-      width: 100%;
-    }
-
     .hero-left h1 {
       font-size: 115px;
       font-weight: 800;
@@ -107,7 +103,6 @@
       margin-bottom: -10px;
       white-space: nowrap;
       animation: bounceFromLeft 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
-      transform-origin: center;
       opacity: 0;
     }
 
@@ -171,21 +166,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 900px) {
-      .hero-left h1 { font-size: 70px; white-space: normal; }
-      .think-mega { font-size: 85px; white-space: normal; }
-      .top-bar { flex-direction: column; text-align: center; }
-      .nav-menu { justify-content: center; }
-    }
-    @media (max-width: 550px) {
-      .hero-left h1 { font-size: 48px; }
-      .think-mega { font-size: 52px; }
-      .nav-menu { gap: 20px; }
-      .email-form { flex-direction: column; background: transparent; border: none; padding: 0; }
-      .email-form input { border: 1px solid #2a3142; border-radius: 60px; padding: 14px 20px; background: #151a24; width: 100%; }
-      .email-form button { width: 100%; justify-content: center; }
-    }
-
     .email-form input {
       flex: 1;
       border: none;
@@ -210,7 +190,7 @@
     }
     .email-form button:hover { background: #d44a1a; transform: scale(0.98); }
 
-    /* BUILD YOUR CONNECTION SECTION */
+    /* ========== BUILD YOUR CONNECTION SECTION (two columns) ========== */
     .connection-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -259,16 +239,26 @@
       transition: 0.2s;
     }
     .btn-work:hover { background: #d44a1a; transform: translateY(-2px); }
+
+    /* ========== ENHANCED "MEGA COMMUNITIES IN ACTION" CARD ========== */
     .connection-right {
       flex: 0.9;
       background: linear-gradient(145deg, #11161f 0%, #0e121b 100%);
       border-radius: 48px;
       padding: 40px 32px;
-      border: 1px solid #2a3142;
+      border: 1px solid rgba(240, 90, 40, 0.3);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+    .connection-right:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 40px -12px rgba(240, 90, 40, 0.25);
+      border-color: rgba(240, 90, 40, 0.6);
     }
     .right-icon {
       font-size: 3rem;
-      background: rgba(240, 90, 40, 0.12);
+      background: rgba(240, 90, 40, 0.15);
       width: 70px;
       height: 70px;
       display: flex;
@@ -276,28 +266,81 @@
       justify-content: center;
       border-radius: 50%;
       color: #f05a28;
+      margin-bottom: 20px;
+      animation: softPulse 3s ease-in-out infinite;
+    }
+    @keyframes softPulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 5px rgba(240,90,40,0.5); }
     }
     .right-highlight {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #f05a28;
-      margin: 16px 0;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: 16px 0 12px;
+      background: linear-gradient(135deg, #f05a28, #ff8c42);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
-    .right-stats { display: flex; gap: 24px; flex-wrap: wrap; margin: 20px 0; }
+    .right-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 20px 0 20px;
+    }
     .stat-badge {
       background: rgba(240, 90, 40, 0.08);
       padding: 8px 18px;
       border-radius: 60px;
       font-weight: 700;
+      font-size: 0.9rem;
+      color: #eef2ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s;
+    }
+    .stat-badge span:first-child {
+      color: #f05a28;
+      font-size: 1.2rem;
+    }
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #f05a28;
+      line-height: 1;
+      margin-right: 4px;
+    }
+    .stat-badge:hover {
+      background: rgba(240, 90, 40, 0.2);
+      transform: translateX(3px);
     }
     .right-quote {
       font-style: italic;
-      color: #9aa9c1;
+      color: #cbd5e6;
       border-left: 3px solid #f05a28;
       padding-left: 18px;
+      margin-top: 24px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      transition: 0.2s;
+    }
+    .right-quote:hover {
+      border-left-width: 4px;
+      color: #ffffff;
+    }
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* SERVICES – 6 TABS */
+    /* ========== SERVICES TABS (6 tabs) ========== */
     .services-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -386,7 +429,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* COMMITMENT SECTION */
+    /* ========== COMMITMENT & CORE VALUES (right side bounce) ========== */
     .commitment-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -471,15 +514,8 @@
       transform: scale(1.05);
       animation: none;
     }
-    @media (max-width: 900px) {
-      .commitment-wrapper { flex-direction: column; text-align: center; }
-      .commitment-right { margin-top: 40px; width: 100%; }
-    }
-    @media (max-width: 550px) {
-      .value-bounce-item { font-size: 0.8rem; padding: 8px 18px; white-space: normal; }
-    }
 
-    /* EMPOWERING SMES */
+    /* ========== EMPOWERING SMES SECTION ========== */
     .empowering-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -517,14 +553,8 @@
       line-height: 1.6;
       color: #cbd5e6;
     }
-    @media (max-width: 700px) {
-      .empowering-container h2 .line1, .empowering-container h2 .line2 { font-size: 60px; letter-spacing: -3px; }
-    }
-    @media (max-width: 550px) {
-      .empowering-container h2 .line1, .empowering-container h2 .line2 { font-size: 40px; letter-spacing: -2px; }
-    }
 
-    /* ABOUT FOUNDER */
+    /* ========== ABOUT FOUNDER ========== */
     .about-founder-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -573,7 +603,6 @@
       width: 160px;
       height: 160px;
       border-radius: 50%;
-      object-fit: cover;
       margin: 0 auto 24px;
       border: 3px solid #f05a28;
       background: #1e2a3a;
@@ -603,16 +632,8 @@
       margin-top: 20px;
       font-size: 0.9rem;
     }
-    @media (max-width: 900px) {
-      .about-founder-container { flex-direction: column; text-align: center; }
-      .about-left h2 { font-size: 2.5rem; }
-      .founder-quote { text-align: center; border-left: none; border-top: 2px solid #f05a28; padding-top: 16px; }
-    }
-    @media (max-width: 700px) {
-      .about-left h2 { font-size: 2rem; }
-    }
 
-    /* CAROUSEL */
+    /* ========== VIDEO CAROUSEL ========== */
     .carousel-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -670,7 +691,7 @@
     .swiper-pagination-bullet { background: #cbd5e6; }
     .swiper-pagination-bullet-active { background: #f05a28; }
 
-    /* TESTIMONIALS 2x2 */
+    /* ========== TESTIMONIALS 2x2 GRID ========== */
     .testimonials-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -697,7 +718,6 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
     }
-    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
     .testimonial-card {
       background: #11161f;
       border-radius: 32px;
@@ -734,7 +754,7 @@
       font-weight: 500;
     }
 
-    /* MEET OUR TEAM SECTION (3x3 grid) */
+    /* ========== MEET OUR TEAM 3x3 ========== */
     .team-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -798,18 +818,8 @@
       color: #f05a28;
       font-weight: 500;
     }
-    @media (max-width: 900px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 550px) {
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-    }
 
-    /* ========== NEW CONTACT FORM SECTION ========== */
+    /* ========== CONTACT FORM ========== */
     .form-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -857,7 +867,7 @@
       font-size: 1rem;
       transition: 0.2s;
     }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    .form-group input:focus, .form-group textarea:focus {
       outline: none;
       border-color: #f05a28;
     }
@@ -900,18 +910,48 @@
       background: #d44a1a;
       transform: translateY(-2px);
     }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero-left h1 { font-size: 70px; white-space: normal; }
+      .think-mega { font-size: 85px; white-space: normal; }
+      .top-bar { flex-direction: column; text-align: center; }
+      .nav-menu { justify-content: center; }
+      .connection-container { flex-direction: column; }
+      .commitment-wrapper { flex-direction: column; text-align: center; }
+      .commitment-right { margin-top: 40px; width: 100%; }
+      .about-founder-container { flex-direction: column; text-align: center; }
+      .about-left h2 { font-size: 2.5rem; }
+      .founder-quote { text-align: center; border-left: none; border-top: 2px solid #f05a28; padding-top: 16px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 700px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 8px 20px; font-size: 0.85rem; }
+      .empowering-container h2 .line1, .empowering-container h2 .line2 { font-size: 60px; letter-spacing: -3px; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 550px) {
+      .hero-left h1 { font-size: 48px; }
+      .think-mega { font-size: 52px; }
+      .email-form { flex-direction: column; background: transparent; border: none; padding: 0; }
+      .email-form input { border: 1px solid #2a3142; border-radius: 60px; padding: 14px 20px; background: #151a24; width: 100%; }
+      .email-form button { width: 100%; justify-content: center; }
+      .value-bounce-item { font-size: 0.8rem; padding: 8px 18px; white-space: normal; }
       .form-container { padding: 28px; }
       .checkbox-group { grid-template-columns: 1fr; }
+      .right-stats { justify-content: center; }
+      .right-highlight { text-align: center; }
+      .right-icon { margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER WITH LOGO (LEFT), CENTER MENU, RIGHT BUTTON -->
+<!-- HEADER -->
 <div class="top-bar">
   <div class="logo-area">
-    <!-- Replace 'logo-cb.webp' with your actual logo file path -->
     <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
   </div>
   <div class="nav-menu">
@@ -925,7 +965,7 @@
   </div>
 </div>
 
-<!-- HERO with animated text -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-left">
     <h1>BUILD YOUR<br>BUSINESS</h1>
@@ -952,13 +992,14 @@
       </p>
       <button class="btn-work" id="workWithUsBtn">WORK WITH US →</button>
     </div>
-    <div class="connection-right">
+    <!-- ENHANCED MEGA COMMUNITIES CARD (with animation & counters) -->
+    <div class="connection-right animate-on-scroll" id="megaCommunityCard">
       <div class="right-icon">🌍</div>
       <div class="right-highlight">MEGA COMMUNITIES IN ACTION</div>
       <div class="right-stats">
-        <div class="stat-badge"><span>🏆</span> 150+ Clients</div>
-        <div class="stat-badge"><span>📈</span> 87% Avg Growth</div>
-        <div class="stat-badge"><span>🤝</span> 24/7 Support</div>
+        <div class="stat-badge"><span>🏆</span> <span class="stat-number" data-target="150">0</span>+ Clients</div>
+        <div class="stat-badge"><span>📈</span> <span class="stat-number" data-target="87">0</span>% Avg Growth</div>
+        <div class="stat-badge"><span>🤝</span> <span class="stat-number" data-target="24">0</span>/7 Support</div>
       </div>
       <div class="right-quote">
         “We don't just run ads — we engineer ecosystems where tribes thrive, loyalty compounds, and revenue becomes predictable.”
@@ -967,7 +1008,7 @@
   </div>
 </div>
 
-<!-- OUR SERVICES (tabs) -->
+<!-- OUR SERVICES TABS (6 tabs) -->
 <div class="services-section">
   <div class="services-container">
     <div class="section-title">Our Services</div>
@@ -989,7 +1030,7 @@
   </div>
 </div>
 
-<!-- OUR COMMITMENT + CORE VALUES (bouncing) -->
+<!-- OUR COMMITMENT + CORE VALUES -->
 <div class="commitment-section">
   <div class="commitment-wrapper">
     <div class="commitment-left">
@@ -1038,7 +1079,7 @@
   </div>
 </div>
 
-<!-- CAROUSEL (Success Stories) -->
+<!-- SUCCESS STORIES CAROUSEL -->
 <div class="carousel-section">
   <div class="carousel-container">
     <div class="carousel-title">Success Stories in Motion</div>
@@ -1071,7 +1112,7 @@
   </div>
 </div>
 
-<!-- MEET OUR TEAM SECTION (3x3 grid) -->
+<!-- MEET OUR TEAM (9 members) -->
 <div class="team-section">
   <div class="team-container">
     <div class="team-title">MEET OUR TEAM.</div>
@@ -1090,31 +1131,18 @@
   </div>
 </div>
 
-<!-- ========== CONTACT FORM SECTION ========== -->
+<!-- CONTACT FORM -->
 <div class="form-section">
   <div class="form-container">
     <div class="form-title">Get in Touch</div>
     <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.'); this.reset();">
       <div class="form-row">
-        <div class="form-group">
-          <label>First Name *</label>
-          <input type="text" name="firstname" required>
-        </div>
-        <div class="form-group">
-          <label>Last Name *</label>
-          <input type="text" name="lastname" required>
-        </div>
+        <div class="form-group"><label>First Name *</label><input type="text" name="firstname" required></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" name="lastname" required></div>
       </div>
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label>Phone Number *</label>
-        <input type="tel" name="phone" required>
-      </div>
-      <div class="form-group">
-        <label>Which services are you interested in?</label>
+      <div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" required></div>
+      <div class="form-group"><label>Which services are you interested in?</label>
         <div class="checkbox-group">
           <label class="checkbox-item"><input type="checkbox" name="service" value="Social Media Domination"> <span>Social Media Domination</span></label>
           <label class="checkbox-item"><input type="checkbox" name="service" value="Full Funnel Development"> <span>Full Funnel Development</span></label>
@@ -1127,10 +1155,7 @@
           <label class="checkbox-item"><input type="checkbox" name="service" value="Branded Episodic Content"> <span>Branded Episodic Content</span></label>
         </div>
       </div>
-      <div class="form-group">
-        <label>Explain Your Projects</label>
-        <textarea rows="5" name="project" placeholder="Tell us about your goals, challenges, or any specific requirements..."></textarea>
-      </div>
+      <div class="form-group"><label>Explain Your Projects</label><textarea rows="5" name="project" placeholder="Tell us about your goals, challenges, or any specific requirements..."></textarea></div>
       <button type="submit" class="submit-btn">SUBMIT →</button>
     </form>
   </div>
@@ -1138,6 +1163,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+  // Swiper Carousel
   const swiper = new Swiper('.videoSwiper', {
     loop: true, spaceBetween: 30, slidesPerView: 1,
     autoplay: { delay: 5000, disableOnInteraction: false },
@@ -1145,6 +1171,63 @@
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
   });
+
+  // Intersection Observer for "Mega Communities" counters & visibility
+  const card = document.getElementById('megaCommunityCard');
+  let counted = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !counted) {
+        counted = true;
+        const counters = document.querySelectorAll('#megaCommunityCard .stat-number');
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target'), 10);
+          let current = 0;
+          const step = target / 35;
+          const update = () => {
+            current += step;
+            if (current < target) {
+              counter.innerText = Math.floor(current);
+              requestAnimationFrame(update);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          requestAnimationFrame(update);
+        });
+        card.classList.add('visible');
+        observer.unobserve(card);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  if (card) {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100 && !counted) {
+      counted = true;
+      const counters = document.querySelectorAll('#megaCommunityCard .stat-number');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        let current = 0;
+        const step = target / 35;
+        const update = () => {
+          current += step;
+          if (current < target) {
+            counter.innerText = Math.floor(current);
+            requestAnimationFrame(update);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        requestAnimationFrame(update);
+      });
+      card.classList.add('visible');
+    } else {
+      observer.observe(card);
+    }
+  }
+
+  // Buttons
   document.getElementById('sendBtn')?.addEventListener('click', function() {
     const email = document.getElementById('magicEmail')?.value.trim();
     alert(email ? `Thanks! We'll send magic to ${email}.` : "Please enter your email to receive marketing insights ✨");
@@ -1153,6 +1236,8 @@
   document.getElementById('workWithUsBtn')?.addEventListener('click', () => alert("Let's build your mega community! Our team will reach out shortly."));
   document.getElementById('getInTouchBtn')?.addEventListener('click', () => alert("Thanks for reaching out! We'll get back to you within 24 hours."));
   document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
+
+  // Tab switching
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panes = document.querySelectorAll('.tab-pane');
   tabBtns.forEach(btn => {
