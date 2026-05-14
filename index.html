@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Clientele Boosters | Think Mega – Dark</title>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* ========== ALL PREVIOUS STYLES ARE PRESERVED ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: #0a0c12;
+      color: #eef2ff;
+      line-height: 1.4;
+    }
+
+    /* header – dark version with logo, centered menu, right button */
+    .top-bar {
+      background: #0f1119;
+      border-bottom: 1px solid #1e2432;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: #f05a28;
+    }
+
+    .header-btn {
+      background: #f05a28;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .header-btn:hover {
+      background: #d44a1a;
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION with background image and bounce animations */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 32px 90px;
+      text-align: center;
+      position: relative;
+      background-image: radial-gradient(circle at 10% 20%, rgba(240, 90, 40, 0.08) 0%, rgba(0,0,0,0) 50%),
+                        repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
+      background-blend-mode: overlay;
+    }
+
+    .hero-left {
+      width: 100%;
+    }
+
+    .hero-left h1 {
+      font-size: 115px;
+      font-weight: 800;
+      line-height: 0.78;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: -10px;
+      white-space: nowrap;
+      animation: bounceFromLeft 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+      transform-origin: center;
+      opacity: 0;
+    }
+
+    .think-mega {
+      font-size: 135px;
+      font-weight: 800;
+      color: #f05a28;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      margin-top: -5px;
+      margin-bottom: 30px;
+      white-space: nowrap;
+      animation: bounceFromRight 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes bounceFromLeft {
+      0% { opacity: 0; transform: translateX(-150px); }
+      60% { opacity: 1; transform: translateX(15px); }
+      80% { transform: translateX(-5px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes bounceFromRight {
+      0% { opacity: 0; transform: translateX(150px); }
+      60% { opacity: 1; transform: translateX(-15px); }
+      80% { transform: translateX(5px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #b9c3d9;
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+
+    .email-form {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #151a24;
+      border-radius: 80px;
+      padding: 6px 6px 6px 24px;
+      border: 1px solid #2a3142;
+      max-width: 480px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-left h1 { font-size: 70px; white-space: normal; }
+      .think-mega { font-size: 85px; white-space: normal; }
+      .top-bar { flex-direction: column; text-align: center; }
+      .nav-menu { justify-content: center; }
+    }
+    @media (max-width: 550px) {
+      .hero-left h1 { font-size: 48px; }
+      .think-mega { font-size: 52px; }
+      .nav-menu { gap: 20px; }
+      .email-form { flex-direction: column; background: transparent; border: none; padding: 0; }
+      .email-form input { border: 1px solid #2a3142; border-radius: 60px; padding: 14px 20px; background: #151a24; width: 100%; }
+      .email-form button { width: 100%; justify-content: center; }
+    }
+
+    .email-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 14px 0;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: inherit;
+      color: #ffffff;
+    }
+    .email-form input::placeholder { color: #6a7a9a; }
+    .email-form button {
+      background: #f05a28;
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 60px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .email-form button:hover { background: #d44a1a; transform: scale(0.98); }
+
+    /* BUILD YOUR CONNECTION SECTION */
+    .connection-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .connection-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 60px;
+    }
+    .connection-left { flex: 1.2; }
+    .connection-left h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .connection-left .pre-tech {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f05a28;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .connection-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #b9c3d9;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+    .btn-work {
+      background: #f05a28;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-work:hover { background: #d44a1a; transform: translateY(-2px); }
+    .connection-right {
+      flex: 0.9;
+      background: linear-gradient(145deg, #11161f 0%, #0e121b 100%);
+      border-radius: 48px;
+      padding: 40px 32px;
+      border: 1px solid #2a3142;
+    }
+    .right-icon {
+      font-size: 3rem;
+      background: rgba(240, 90, 40, 0.12);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #f05a28;
+    }
+    .right-highlight {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f05a28;
+      margin: 16px 0;
+    }
+    .right-stats { display: flex; gap: 24px; flex-wrap: wrap; margin: 20px 0; }
+    .stat-badge {
+      background: rgba(240, 90, 40, 0.08);
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-weight: 700;
+    }
+    .right-quote {
+      font-style: italic;
+      color: #9aa9c1;
+      border-left: 3px solid #f05a28;
+      padding-left: 18px;
+    }
+
+    /* SERVICES – 6 TABS */
+    .services-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .services-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #b9c3d9;
+      margin-bottom: 48px;
+    }
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .tab-btn {
+      background: #151a24;
+      border: 1px solid #2a3142;
+      color: #cbd5e6;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .tab-btn:hover { background: #1f2937; color: #f05a28; }
+    .tab-btn.active {
+      background: #f05a28;
+      border-color: #f05a28;
+      color: white;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: #11161f;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid #2a3142;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+      border-color: #f05a28;
+    }
+    .card-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-content { padding: 20px; }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: #b9c3d9;
+      line-height: 1.4;
+    }
+    .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+    .tab-pane.active-pane { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* COMMITMENT SECTION */
+    .commitment-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .commitment-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 60px;
+    }
+    .commitment-left { flex: 1; }
+    .commitment-left h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f05a28;
+      margin-bottom: 16px;
+    }
+    .commitment-left p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #cbd5e6;
+      margin-bottom: 32px;
+    }
+    .btn-getintouch {
+      background: #f05a28;
+      color: white;
+      border: none;
+      padding: 14px 42px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-getintouch:hover { background: #d44a1a; transform: translateY(-2px); }
+    .commitment-right { flex: 0.9; }
+    .commitment-right h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .values-bounce-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .value-bounce-item {
+      background: #11161f;
+      border: 1px solid #2a3142;
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      animation: bounceSoft 2s ease infinite;
+    }
+    .value-bounce-item:nth-child(1) { animation-delay: 0s; }
+    .value-bounce-item:nth-child(2) { animation-delay: 0.2s; }
+    .value-bounce-item:nth-child(3) { animation-delay: 0.4s; }
+    .value-bounce-item:nth-child(4) { animation-delay: 0.6s; }
+    .value-bounce-item:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes bounceSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .value-bounce-item:hover {
+      border-color: #f05a28;
+      background: #f05a28;
+      color: #0a0c12;
+      transform: scale(1.05);
+      animation: none;
+    }
+    @media (max-width: 900px) {
+      .commitment-wrapper { flex-direction: column; text-align: center; }
+      .commitment-right { margin-top: 40px; width: 100%; }
+    }
+    @media (max-width: 550px) {
+      .value-bounce-item { font-size: 0.8rem; padding: 8px 18px; white-space: normal; }
+    }
+
+    /* EMPOWERING SMES */
+    .empowering-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .empowering-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .empowering-container h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 0.7;
+      margin-bottom: 0px;
+    }
+    .empowering-container h2 .line1 {
+      color: #ffffff;
+      display: block;
+      font-size: 100px;
+      letter-spacing: -5px;
+    }
+    .empowering-container h2 .line2 {
+      color: #f05a28;
+      display: block;
+      margin-top: 8px;
+      font-size: 100px;
+      letter-spacing: -5px;
+    }
+    .empowering-text {
+      max-width: 800px;
+      margin: 32px auto 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #cbd5e6;
+    }
+    @media (max-width: 700px) {
+      .empowering-container h2 .line1, .empowering-container h2 .line2 { font-size: 60px; letter-spacing: -3px; }
+    }
+    @media (max-width: 550px) {
+      .empowering-container h2 .line1, .empowering-container h2 .line2 { font-size: 40px; letter-spacing: -2px; }
+    }
+
+    /* ABOUT FOUNDER */
+    .about-founder-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .about-founder-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 60px;
+    }
+    .about-left { flex: 1; }
+    .about-left .about-founder-tag {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #f05a28;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .about-left h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .about-left p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e6;
+      margin-bottom: 24px;
+    }
+    .about-right {
+      flex: 0.8;
+      background: linear-gradient(145deg, #11161f 0%, #0e121b 100%);
+      border-radius: 48px;
+      padding: 48px 32px;
+      border: 1px solid #2a3142;
+      text-align: center;
+    }
+    .founder-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 24px;
+      border: 3px solid #f05a28;
+      background: #1e2a3a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .about-right h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .about-right .founder-title {
+      font-size: 1rem;
+      color: #f05a28;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .founder-quote {
+      font-style: italic;
+      color: #9aa9c1;
+      border-left: 3px solid #f05a28;
+      padding-left: 18px;
+      text-align: left;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 900px) {
+      .about-founder-container { flex-direction: column; text-align: center; }
+      .about-left h2 { font-size: 2.5rem; }
+      .founder-quote { text-align: center; border-left: none; border-top: 2px solid #f05a28; padding-top: 16px; }
+    }
+    @media (max-width: 700px) {
+      .about-left h2 { font-size: 2rem; }
+    }
+
+    /* CAROUSEL */
+    .carousel-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .carousel-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .carousel-subtitle {
+      text-align: center;
+      color: #b9c3d9;
+      margin-bottom: 48px;
+    }
+    .swiper {
+      width: 100%;
+      padding: 20px 0 50px;
+    }
+    .swiper-slide {
+      background: #11161f;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid #2a3142;
+      transition: transform 0.3s;
+    }
+    .swiper-slide:hover { transform: scale(1.02); border-color: #f05a28; }
+    .slide-video-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .slide-content { padding: 24px; }
+    .slide-quote {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .slide-author {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f05a28;
+    }
+    .slide-author span { color: #9aa9c1; font-weight: 400; }
+    .swiper-button-next, .swiper-button-prev { color: #f05a28; }
+    .swiper-pagination-bullet { background: #cbd5e6; }
+    .swiper-pagination-bullet-active { background: #f05a28; }
+
+    /* TESTIMONIALS 2x2 */
+    .testimonials-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .testimonials-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .testimonials-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .testimonials-subtitle {
+      text-align: center;
+      color: #b9c3d9;
+      margin-bottom: 48px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: #11161f;
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid #2a3142;
+      transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: #f05a28;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .testimonial-quote-icon {
+      font-size: 2.5rem;
+      color: #f05a28;
+      opacity: 0.4;
+      margin-bottom: 16px;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e6;
+      margin-bottom: 24px;
+    }
+    .testimonial-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: #f05a28;
+      font-weight: 500;
+    }
+
+    /* MEET OUR TEAM SECTION (3x3 grid) */
+    .team-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .team-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .team-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .team-subtitle {
+      text-align: center;
+      color: #b9c3d9;
+      margin-bottom: 48px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .team-member {
+      background: #11161f;
+      border-radius: 32px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid #2a3142;
+      transition: all 0.3s ease;
+    }
+    .team-member:hover {
+      transform: translateY(-8px);
+      border-color: #f05a28;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .member-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: #1e2a3a;
+      border: 3px solid #f05a28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #f05a28;
+    }
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .member-role {
+      font-size: 0.9rem;
+      color: #f05a28;
+      font-weight: 500;
+    }
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 550px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========== NEW CONTACT FORM SECTION ========== */
+    .form-section {
+      background: #0a0c12;
+      padding: 70px 32px;
+      border-top: 1px solid #1a1f2a;
+    }
+    .form-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #11161f;
+      border-radius: 48px;
+      padding: 48px;
+      border: 1px solid #2a3142;
+    }
+    .form-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .form-group {
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #cbd5e6;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      background: #0a0c12;
+      border: 1px solid #2a3142;
+      border-radius: 20px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: #f05a28;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #f05a28;
+      cursor: pointer;
+    }
+    .checkbox-item span {
+      color: #cbd5e6;
+      font-size: 0.95rem;
+    }
+    .submit-btn {
+      background: #f05a28;
+      color: #0a0c12;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.2s;
+      margin-top: 16px;
+    }
+    .submit-btn:hover {
+      background: #d44a1a;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 700px) {
+      .form-container { padding: 28px; }
+      .checkbox-group { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER WITH LOGO (LEFT), CENTER MENU, RIGHT BUTTON -->
+<div class="top-bar">
+  <div class="logo-area">
+    <!-- Replace 'logo-cb.webp' with your actual logo file path -->
+    <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
+  </div>
+  <div class="nav-menu">
+    <a href="#">SERVICES</a>
+    <a href="#">PROJECTS</a>
+    <a href="#">BLOGS</a>
+    <a href="#">CONTACT US</a>
+  </div>
+  <div>
+    <button class="header-btn" id="headerContactBtn">Get in Touch →</button>
+  </div>
+</div>
+
+<!-- HERO with animated text -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>BUILD YOUR<br>BUSINESS</h1>
+    <div class="think-mega">THINK MEGA</div>
+    <p class="hero-description">
+      We help Service, Product & Online Businesses grow predictably using 
+      <strong>Programmatic Marketing</strong> premised on Science, Data and Psychology.
+    </p>
+    <div class="email-form">
+      <input type="email" placeholder="Enter your email here and we'll send you some magic" id="magicEmail">
+      <button id="sendBtn">SEND →</button>
+    </div>
+  </div>
+</div>
+
+<!-- BUILD YOUR CONNECTION -->
+<div class="connection-section">
+  <div class="connection-container">
+    <div class="connection-left">
+      <h2>BUILD YOUR<br>CONNECTION</h2>
+      <div class="pre-tech">PRE-TECHNOLOGY,<br>HUMANS FORMED GROUPS<br>AND HUNTED IN TRIBES.</div>
+      <p class="connection-desc">
+        We help Solopreneurs, SMEs, Medium Sized Businesses, Corporations, Franchises, Social Enterprises, Ecommerce Models, Gov-owned / Backed Enterprises grow using the most core human elements of marketing – creating tactical campaigns focused on driving revenue through the acquisition and formation of Mega Communities.
+      </p>
+      <button class="btn-work" id="workWithUsBtn">WORK WITH US →</button>
+    </div>
+    <div class="connection-right">
+      <div class="right-icon">🌍</div>
+      <div class="right-highlight">MEGA COMMUNITIES IN ACTION</div>
+      <div class="right-stats">
+        <div class="stat-badge"><span>🏆</span> 150+ Clients</div>
+        <div class="stat-badge"><span>📈</span> 87% Avg Growth</div>
+        <div class="stat-badge"><span>🤝</span> 24/7 Support</div>
+      </div>
+      <div class="right-quote">
+        “We don't just run ads — we engineer ecosystems where tribes thrive, loyalty compounds, and revenue becomes predictable.”
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR SERVICES (tabs) -->
+<div class="services-section">
+  <div class="services-container">
+    <div class="section-title">Our Services</div>
+    <div class="section-subtitle">Click any tab to explore how we drive results</div>
+    <div class="tab-buttons" id="tabButtons">
+      <button class="tab-btn active" data-tab="tab1">🔥 Social Media</button>
+      <button class="tab-btn" data-tab="tab2">📈 SEO Mastery</button>
+      <button class="tab-btn" data-tab="tab3">🎬 Content Creation</button>
+      <button class="tab-btn" data-tab="tab4">💰 Paid Ads</button>
+      <button class="tab-btn" data-tab="tab5">🎯 Coaching</button>
+      <button class="tab-btn" data-tab="tab6">🚀 Sales Enablement</button>
+    </div>
+    <div id="tab1" class="tab-pane active-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/20/400/300" alt="Social"><div class="card-content"><div class="card-title">Instagram Domination</div><div class="card-desc">+340% engagement for luxury brand campaign.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/26/400/300" alt="TikTok"><div class="card-content"><div class="card-title">Viral TikTok Campaign</div><div class="card-desc">2.4M views in 7 days – community explosion.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/91/400/300" alt="LinkedIn"><div class="card-content"><div class="card-title">LinkedIn Authority</div><div class="card-desc">500+ leads generated through organic thought leadership.</div></div></div></div></div>
+    <div id="tab2" class="tab-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/48/400/300" alt="SEO"><div class="card-content"><div class="card-title">Ecommerce SEO</div><div class="card-desc">187% organic traffic increase in 4 months.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/169/400/300" alt="Local"><div class="card-content"><div class="card-title">Local Business Rankings</div><div class="card-desc">#1 on Google Maps for 15 keywords.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/155/400/300" alt="Technical"><div class="card-content"><div class="card-title">Technical SEO Audit</div><div class="card-desc">Core Web Vitals optimized → +32% conversions.</div></div></div></div></div>
+    <div id="tab3" class="tab-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/0/400/300" alt="Video"><div class="card-content"><div class="card-title">Branded Episodic Series</div><div class="card-desc">Cinematic storytelling for fintech startup.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/106/400/300" alt="Ads creative"><div class="card-content"><div class="card-title">High-Conversion Ads Creative</div><div class="card-desc">3.8x ROAS with video-first assets.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/104/400/300" alt="Photo"><div class="card-content"><div class="card-title">Product Photography</div><div class="card-desc">Premium visuals that doubled click-through rates.</div></div></div></div></div>
+    <div id="tab4" class="tab-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/101/400/300" alt="Meta"><div class="card-content"><div class="card-title">Meta Ad Scaling</div><div class="card-desc">From $5k to $50k monthly spend with 4.2x ROAS.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/116/400/300" alt="Google"><div class="card-content"><div class="card-title">Google Shopping</div><div class="card-desc">Reduced CPA by 54% for e‑com brand.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/20/400/300" alt="Retargeting"><div class="card-content"><div class="card-title">Retargeting Campaign</div><div class="card-desc">+76% return visitors converted.</div></div></div></div></div>
+    <div id="tab5" class="tab-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/82/400/300" alt="Coaching1"><div class="card-content"><div class="card-title">Founder Growth Sprint</div><div class="card-desc">12-week program – 3x revenue for 7 startups.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/84/400/300" alt="Coaching2"><div class="card-content"><div class="card-title">Team Training</div><div class="card-desc">Custom workshops to align marketing & sales.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/88/400/300" alt="Coaching3"><div class="card-content"><div class="card-title">Accountability Program</div><div class="card-desc">Weekly strategy calls + execution roadmap.</div></div></div></div></div>
+    <div id="tab6" class="tab-pane"><div class="cards-grid"><div class="card"><img class="card-image" src="https://picsum.photos/id/96/400/300" alt="Sales1"><div class="card-content"><div class="card-title">CRM Automation</div><div class="card-desc">Streamlined pipelines + 42% faster deal closure.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/97/400/300" alt="Sales2"><div class="card-content"><div class="card-title">Objection Handling Scripts</div><div class="card-desc">Boosted win rate from 23% to 51% in 60 days.</div></div></div><div class="card"><img class="card-image" src="https://picsum.photos/id/99/400/300" alt="Sales3"><div class="card-content"><div class="card-title">Sales Playbooks</div><div class="card-desc">Customizable frameworks for B2B & D2C teams.</div></div></div></div></div>
+  </div>
+</div>
+
+<!-- OUR COMMITMENT + CORE VALUES (bouncing) -->
+<div class="commitment-section">
+  <div class="commitment-wrapper">
+    <div class="commitment-left">
+      <h2>OUR COMMITMENT</h2>
+      <p>We're more than just a service provider — we're your partners in growth. From strategy to execution, we're with you at every turn, driving your business towards its goals and beyond. <strong>Your success is our mission.</strong></p>
+      <button class="btn-getintouch" id="getInTouchBtn">Get In Touch →</button>
+    </div>
+    <div class="commitment-right">
+      <h3>OUR CORE VALUES</h3>
+      <div class="values-bounce-grid">
+        <div class="value-bounce-item">⚡ SPEED</div>
+        <div class="value-bounce-item">🧠 DEEP THINKING</div>
+        <div class="value-bounce-item">🤝 CLIENT FIRST</div>
+        <div class="value-bounce-item">👥 TEAM</div>
+        <div class="value-bounce-item">🎨 CREATIVITY ALWAYS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMPOWERING SMES -->
+<div class="empowering-section">
+  <div class="empowering-container">
+    <h2><span class="line1">EMPOWERING SMES</span><span class="line2">REDEFINING SUCCESS</span></h2>
+    <div class="empowering-text">
+      <p>At CLIENTELE BOOSTERS, success isn't just a target — it's a journey of constant elevation. We partner with individuals (not businesses) to go beyond their goals, leveraging our expertise and industry know-how to unlock new levels of thinking — and hence growth. Together, we'll help your business outshine the competition and create a lasting impact in your industry.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT FOUNDER -->
+<div class="about-founder-section">
+  <div class="about-founder-container">
+    <div class="about-left">
+      <div class="about-founder-tag">ABOUT FOUNDER</div>
+      <h2>ABOUT US</h2>
+      <p>Dami Okedara is the visionary CEO and founder of Clientele Boosters. With deep expertise in programmatic marketing, behavioral psychology, and data science, Dami has helped over 150 businesses scale predictably by building Mega Communities.</p>
+      <p>His approach combines ancient human tribal dynamics with cutting-edge digital strategies, ensuring that every campaign doesn't just drive vanity metrics but creates real, lasting revenue growth. Under his leadership, Clientele Boosters has become a trusted partner for SMEs, enterprises, and government-backed organisations across Australia.</p>
+    </div>
+    <div class="about-right">
+      <div class="founder-image">👨‍💼</div>
+      <h3>DAMI OKEDARA</h3>
+      <div class="founder-title">CEO & Founder</div>
+      <div class="founder-quote">“I don't just build campaigns — I build ecosystems where tribes thrive, loyalty compounds, and revenue becomes inevitable.”</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAROUSEL (Success Stories) -->
+<div class="carousel-section">
+  <div class="carousel-container">
+    <div class="carousel-title">Success Stories in Motion</div>
+    <div class="carousel-subtitle">Watch how our clients grow their businesses</div>
+    <div class="swiper videoSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img class="slide-video-img" src="https://picsum.photos/id/20/800/500" alt="Client video"><div class="slide-content"><div class="slide-quote">"Growing my page up to a thousand followers and thousand likes"</div><div class="slide-author">Melvin Sole <span>• Client</span></div></div></div>
+        <div class="swiper-slide"><img class="slide-video-img" src="https://picsum.photos/id/26/800/500" alt="Client video"><div class="slide-content"><div class="slide-quote">"Our sales increased by 187% in just 3 months. Clientele Boosters changed everything!"</div><div class="slide-author">Sarah Johnson <span>• E‑com Founder</span></div></div></div>
+        <div class="swiper-slide"><img class="slide-video-img" src="https://picsum.photos/id/91/800/500" alt="Client video"><div class="slide-content"><div class="slide-quote">"The best investment we ever made. Our community grew from zero to 50k+ engaged followers."</div><div class="slide-author">Marcus Lee <span>• Agency Owner</span></div></div></div>
+        <div class="swiper-slide"><img class="slide-video-img" src="https://picsum.photos/id/106/800/500" alt="Client video"><div class="slide-content"><div class="slide-quote">"Programmatic marketing works. We saw a 340% ROI within 60 days."</div><div class="slide-author">Priya Patel <span>• Tech Startup</span></div></div></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS 2x2 -->
+<div class="testimonials-section">
+  <div class="testimonials-container">
+    <div class="testimonials-title">What Our Clients Say</div>
+    <div class="testimonials-subtitle">Real results from real people</div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="testimonial-quote-icon">“</div><div class="testimonial-text">Incredible content and professional service! Highly recommend Dami Okedara from Clientele Boosters as he is extremely passionate about helping small businesses grow!</div><div class="testimonial-name">Merlyn Sunil</div><div class="testimonial-role">Founder Of Empress Jewels</div></div>
+      <div class="testimonial-card"><div class="testimonial-quote-icon">“</div><div class="testimonial-text">Very Helpful and informative, definitely one of the best services out there. Thank you to Dami and the team at Clientele Boosters.</div><div class="testimonial-name">Mal Mut</div><div class="testimonial-role">Co-Owner Of Outworkcraw</div></div>
+      <div class="testimonial-card"><div class="testimonial-quote-icon">“</div><div class="testimonial-text">I just saw and we are super happy with the results. It was motivating that we could be successful with the campaign. Thank you so much for your help...</div><div class="testimonial-name">Nidhi Yogi</div><div class="testimonial-role">Co-Founder Of Sakhi Saheli</div></div>
+      <div class="testimonial-card"><div class="testimonial-quote-icon">“</div><div class="testimonial-text">Helped My Photography Business Expand Within Days! Amazing, will help you with everything you need to run a business and will assist you in the future.</div><div class="testimonial-name">Carly Joy</div><div class="testimonial-role">Carly Joy Photography</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MEET OUR TEAM SECTION (3x3 grid) -->
+<div class="team-section">
+  <div class="team-container">
+    <div class="team-title">MEET OUR TEAM.</div>
+    <div class="team-subtitle">The people behind your growth</div>
+    <div class="team-grid">
+      <div class="team-member"><div class="member-avatar">👨‍💼</div><div class="member-name">Dami Okedara</div><div class="member-role">Founder / Managing Director</div></div>
+      <div class="team-member"><div class="member-avatar">👩‍💼</div><div class="member-name">Thais Havel</div><div class="member-role">Account Manager</div></div>
+      <div class="team-member"><div class="member-avatar">👩‍💼</div><div class="member-name">Tabitha Carthigasu</div><div class="member-role">Account Manager</div></div>
+      <div class="team-member"><div class="member-avatar">👨‍💼</div><div class="member-name">Ali Hooshmand</div><div class="member-role">Account Manager</div></div>
+      <div class="team-member"><div class="member-avatar">👩‍💼</div><div class="member-name">KC Muncal</div><div class="member-role">Account Manager</div></div>
+      <div class="team-member"><div class="member-avatar">👨‍💼</div><div class="member-name">Michael Fernandez</div><div class="member-role">Account Manager</div></div>
+      <div class="team-member"><div class="member-avatar">👨‍💼</div><div class="member-name">Aerro James Tablatin</div><div class="member-role">Head of Sales</div></div>
+      <div class="team-member"><div class="member-avatar">👩‍💼</div><div class="member-name">Cha</div><div class="member-role">Head of Social Media</div></div>
+      <div class="team-member"><div class="member-avatar">👨‍💼</div><div class="member-name">Bryan</div><div class="member-role">Head of SEO</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CONTACT FORM SECTION ========== -->
+<div class="form-section">
+  <div class="form-container">
+    <div class="form-title">Get in Touch</div>
+    <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.'); this.reset();">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" name="firstname" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" name="lastname" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Which services are you interested in?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Social Media Domination"> <span>Social Media Domination</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Full Funnel Development"> <span>Full Funnel Development</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Sales Enablement & Training"> <span>Sales Enablement & Training</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Content Creation (End-to-End)"> <span>Content Creation (End-to-End)</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Web/App Development"> <span>Web/App Development</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Strategic Consulting"> <span>Strategic Consulting</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Precision Paid Ads"> <span>Precision Paid Ads</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Virtual Assistants"> <span>Virtual Assistants</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="service" value="Branded Episodic Content"> <span>Branded Episodic Content</span></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Explain Your Projects</label>
+        <textarea rows="5" name="project" placeholder="Tell us about your goals, challenges, or any specific requirements..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">SUBMIT →</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.videoSwiper', {
+    loop: true, spaceBetween: 30, slidesPerView: 1,
+    autoplay: { delay: 5000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+  });
+  document.getElementById('sendBtn')?.addEventListener('click', function() {
+    const email = document.getElementById('magicEmail')?.value.trim();
+    alert(email ? `Thanks! We'll send magic to ${email}.` : "Please enter your email to receive marketing insights ✨");
+    if(email) document.getElementById('magicEmail').value = '';
+  });
+  document.getElementById('workWithUsBtn')?.addEventListener('click', () => alert("Let's build your mega community! Our team will reach out shortly."));
+  document.getElementById('getInTouchBtn')?.addEventListener('click', () => alert("Thanks for reaching out! We'll get back to you within 24 hours."));
+  document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.tab-pane');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active-pane'));
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active-pane');
+    });
+  });
+</script>
+</body>
+</html>
