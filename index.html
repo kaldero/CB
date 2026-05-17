@@ -6,6 +6,8 @@
   <title>Clientele Boosters | Think Mega – Dark</title>
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Font Awesome Icons (for footer) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* ========== GLOBAL RESET & DARK THEME ========== */
     * {
@@ -21,7 +23,7 @@
       line-height: 1.4;
     }
 
-    /* ========== HEADER (logo left, menu center, button right) ========== */
+    /* ========== HEADER (with sliding hover background) ========== */
     .top-bar {
       background: #0f1119;
       border-bottom: 1px solid #1e2432;
@@ -31,6 +33,8 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
+      position: relative;
+      z-index: 100;
     }
 
     .logo-area {
@@ -49,6 +53,7 @@
       gap: 32px;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .nav-menu a {
@@ -57,10 +62,27 @@
       font-size: 0.95rem;
       color: #cbd5e6;
       transition: 0.2s;
+      position: relative;
+      z-index: 2;
+      padding: 8px 0;
     }
 
     .nav-menu a:hover {
-      color: #f05a28;
+      color: #ffffff;
+    }
+
+    /* Sliding background pill */
+    .nav-slider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 32px;
+      background: rgb(240, 90, 40);
+      border-radius: 40px;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .header-btn {
@@ -1060,12 +1082,13 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER WITH SLIDING HOVER BACKGROUND -->
 <div class="top-bar">
   <div class="logo-area">
     <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
   </div>
-  <div class="nav-menu">
+  <div class="nav-menu" id="navMenu">
+    <div class="nav-slider" id="navSlider"></div>
     <a href="#">SERVICES</a>
     <a href="#">PROJECTS</a>
     <a href="#">BLOGS</a>
@@ -1299,7 +1322,6 @@
           <li>Branded Episodic Content</li>
         </ul>
       </div>
-      <!-- Column 3: Location & Contact -->
       <div class="footer-col">
         <h4>LOCATION</h4>
         <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</div>
@@ -1315,6 +1337,44 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+  // ========== SLIDING HOVER BACKGROUND FOR MENU ==========
+  const navMenu = document.getElementById('navMenu');
+  const slider = document.getElementById('navSlider');
+  const menuLinks = document.querySelectorAll('.nav-menu a');
+
+  function moveSliderToLink(link) {
+    if (!link) return;
+    const linkRect = link.getBoundingClientRect();
+    const navRect = navMenu.getBoundingClientRect();
+    const left = linkRect.left - navRect.left;
+    const width = linkRect.width;
+    slider.style.left = `${left}px`;
+    slider.style.width = `${width}px`;
+    slider.style.opacity = '1';
+  }
+
+  function hideSlider() {
+    slider.style.opacity = '0';
+  }
+
+  menuLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => moveSliderToLink(link));
+  });
+
+  navMenu.addEventListener('mouseleave', hideSlider);
+
+  // Initialize slider position (optional, could remain hidden)
+  // For a subtle effect, we can set it to the first link on page load but hidden
+  if (menuLinks.length > 0) {
+    const firstLink = menuLinks[0];
+    const linkRect = firstLink.getBoundingClientRect();
+    const navRect = navMenu.getBoundingClientRect();
+    slider.style.left = `${linkRect.left - navRect.left}px`;
+    slider.style.width = `${linkRect.width}px`;
+    slider.style.opacity = '0';
+  }
+
+  // ========== EXISTING SCRIPTS ==========
   // Swiper Carousel
   const swiper = new Swiper('.videoSwiper', {
     loop: true, spaceBetween: 30, slidesPerView: 1,

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Clientele Boosters | Our Services</title>
+  <!-- Swiper is not needed for this page but keeping consistency -->
+  <style>
+    /* ========== GLOBAL RESET & DARK THEME (same as homepage) ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: #0a0c12;
+      color: #eef2ff;
+      line-height: 1.4;
+    }
+
+    /* ========== HEADER (exact copy from homepage) ========== */
+    .top-bar {
+      background: #0f1119;
+      border-bottom: 1px solid #1e2432;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: #f05a28;
+    }
+
+    .header-btn {
+      background: #f05a28;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .header-btn:hover {
+      background: #d44a1a;
+      transform: translateY(-2px);
+    }
+
+    /* ========== SERVICES HERO ========== */
+    .services-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 32px 40px;
+      text-align: center;
+    }
+
+    .services-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .services-hero p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #cbd5e6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ========== INTERACTIVE SERVICES SECTION ========== */
+    .main-services {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 48px;
+    }
+
+    .services-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .service-nav {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .service-item {
+      background: #11161f;
+      border: 1px solid #2a3142;
+      border-radius: 60px;
+      padding: 12px 24px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 600;
+      color: #cbd5e6;
+      text-align: center;
+    }
+
+    .service-item.active,
+    .service-item:hover {
+      background: #f05a28;
+      border-color: #f05a28;
+      color: #0a0c12;
+    }
+
+    .service-detail {
+      flex: 2;
+      background: #11161f;
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid #2a3142;
+    }
+
+    .service-detail h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .service-detail p {
+      color: #cbd5e6;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .results-preview {
+      background: #0a0c12;
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 20px;
+      border-left: 4px solid #f05a28;
+    }
+
+    .results-preview h4 {
+      font-size: 1.2rem;
+      color: #f05a28;
+      margin-bottom: 16px;
+    }
+
+    .campaign-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .campaign-card {
+      flex: 1;
+      min-width: 200px;
+      background: #11161f;
+      border-radius: 20px;
+      padding: 16px;
+      border: 1px solid #2a3142;
+    }
+
+    .campaign-card h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f05a28;
+      margin-bottom: 8px;
+    }
+
+    .campaign-card p {
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .screenshot-placeholder {
+      background: #1e2a3a;
+      height: 80px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9aa9c1;
+      font-size: 0.7rem;
+      margin-top: 12px;
+    }
+
+    /* ========== FOOTER (exact copy from homepage) ========== */
+    .footer {
+      background: #0f1119;
+      border-top: 1px solid #1e2432;
+      padding: 60px 32px 30px;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-col h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #f05a28);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 16px;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .footer-col h4:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #f05a28;
+      border-radius: 2px;
+    }
+    .footer-hours {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      color: #cbd5e6;
+    }
+    .footer-hours i {
+      color: #f05a28;
+      width: 24px;
+    }
+    .footer-mission {
+      color: #b9c3d9;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    .footer-services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+    }
+    .footer-services-list li {
+      font-size: 0.9rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+      cursor: default;
+    }
+    .footer-services-list li:hover {
+      color: #f05a28;
+      transform: translateX(3px);
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: #cbd5e6;
+    }
+    .footer-contact-item i {
+      color: #f05a28;
+      width: 24px;
+      font-size: 1.1rem;
+    }
+    .footer-contact-item a {
+      color: #cbd5e6;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .footer-contact-item a:hover {
+      color: #f05a28;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #1e2432;
+      font-size: 0.85rem;
+      color: #7e8aa2;
+    }
+
+    /* ========== RESPONSIVE (as per homepage) ========== */
+    @media (max-width: 900px) {
+      .top-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-menu {
+        justify-content: center;
+      }
+      .services-wrapper {
+        flex-direction: column;
+      }
+      .service-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .service-item {
+        flex: 1 0 auto;
+        margin-bottom: 0;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+      .service-detail {
+        padding: 24px;
+      }
+      .service-detail h3 {
+        font-size: 1.5rem;
+      }
+      .campaign-grid {
+        flex-direction: column;
+      }
+      .footer-services-list {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .services-hero h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero-left h1 {
+        font-size: 48px;
+      }
+      .think-mega {
+        font-size: 52px;
+      }
+      .email-form {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        padding: 0;
+      }
+      .email-form input {
+        border: 1px solid #2a3142;
+        border-radius: 60px;
+        padding: 14px 20px;
+        background: #151a24;
+        width: 100%;
+      }
+      .email-form button {
+        width: 100%;
+        justify-content: center;
+      }
+      .form-container {
+        padding: 28px;
+      }
+      .checkbox-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER (exactly as homepage) -->
+<div class="top-bar">
+  <div class="logo-area">
+    <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
+  </div>
+  <div class="nav-menu">
+    <a href="index.html">HOME</a>
+    <a href="services.html" style="color:#f05a28;">SERVICES</a>
+    <a href="#">PROJECTS</a>
+    <a href="#">BLOG</a>
+    <a href="#">CONTACT US</a>
+  </div>
+  <div>
+    <button class="header-btn" id="headerContactBtn">Get in Touch →</button>
+  </div>
+</div>
+
+<!-- SERVICES HERO -->
+<div class="services-hero">
+  <h1>SERVICES</h1>
+  <p>At Clientele Boosters, we don't just talk results — we engineer them. Blending cutting-edge creativity with data-driven strategy, we empower businesses of all sizes to dominate the digital world. Whether you're a solopreneur or a large corporation, our services are designed to fuel growth, drive revenue, and create lasting connections. Let's build your brand into a powerhouse.</p>
+</div>
+
+<!-- MAIN SERVICES (interactive) -->
+<div class="main-services">
+  <div class="section-title">OUR SERVICES</div>
+  <div class="services-wrapper">
+    <div class="service-nav" id="serviceNav">
+      <div class="service-item active" data-service="social">🔥 SOCIAL MEDIA DOMINATION</div>
+      <div class="service-item" data-service="seo">📈 SEO MASTERY</div>
+      <div class="service-item" data-service="content">🎬 CONTENT CREATION</div>
+      <div class="service-item" data-service="ads">💰 PRECISION PAID ADS</div>
+      <div class="service-item" data-service="coaching">🎯 COACHING</div>
+      <div class="service-item" data-service="sales">🚀 SALES ENABLEMENT</div>
+    </div>
+    <div class="service-detail" id="serviceDetail">
+      <!-- Dynamic content will be inserted here -->
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER (exactly as homepage) -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>CLIENTELE BOOSTERS</h3>
+        <div class="footer-hours"><i class="fas fa-clock"></i> Monday – Sunday – 24/7</div>
+        <div class="footer-mission">
+          Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>OUR SERVICES</h4>
+        <ul class="footer-services-list">
+          <li>Social Media Domination</li>
+          <li>Content Creation (End-to-End)</li>
+          <li>Precision Paid Ads</li>
+          <li>Full Funnel Development</li>
+          <li>Web/App Development</li>
+          <li>Virtual Assistants</li>
+          <li>Sales Enablement and Training</li>
+          <li>Strategic Consulting</li>
+          <li>Branded Episodic Content</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>LOCATION</h4>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+61468655316">+61 468 655 316</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i> <a href="mailto:damiokedara@clienteleboosters.net">damiokedara@clienteleboosters.net</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Clientele Boosters – All rights reserved. Built with 💜 in Australia.
+    </div>
+  </div>
+</footer>
+
+<!-- Font Awesome for icons (same as homepage) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script>
+  // Service data with descriptions and campaign results
+  const servicesData = {
+    social: {
+      title: "SOCIAL MEDIA DOMINATION",
+      description: "Capture attention and drive engagement across platforms. From scroll-stopping visuals to trend-smart strategies, we'll amplify your brand's presence where it matters most. Our community-first approach turns followers into loyal advocates.",
+      campaigns: [
+        { name: "KRAVIN KEBABS - CAMPAIGN RESULT", result: "+10% sales increase in 10 days", note: "Screenshots: social engagement + direct attribution" },
+        { name: "ORBIT ADVERTISING - CAMPAIGN RESULT", result: "+187% reach & +34% conversion rate", note: "High-performing creative strategy & LinkedIn expansion" }
+      ]
+    },
+    seo: {
+      title: "SEO MASTERY",
+      description: "Dominate search rankings with technical SEO, backlinks, and content clusters. We provide a results preview dashboard, ensuring you see exactly how your organic traffic grows month over month.",
+      campaigns: [
+        { name: "Ecommerce SEO Client", result: "187% organic traffic increase in 4 months", note: "Ranked #1 for 35+ high-value keywords" },
+        { name: "Local Business Rankings", result: "#1 on Google Maps for 15 keywords", note: "Increased local leads by 142%" }
+      ]
+    },
+    content: {
+      title: "CONTENT CREATION",
+      description: "Cinematic storytelling, high-conversion videos, and copy that positions you as the authority. End-to-end production from concept to final edit, tailored for your brand voice.",
+      campaigns: [
+        { name: "Branded Episodic Series", result: "3.8x ROAS with video-first assets", note: "Fintech startup saw 340% engagement" },
+        { name: "Product Photography", result: "Doubled click-through rates", note: "Premium visuals for luxury e‑com brand" }
+      ]
+    },
+    ads: {
+      title: "PRECISION PAID ADS",
+      description: "Data-first campaigns across Meta, Google, LinkedIn. AI-driven targeting, creative testing, and full-funnel optimization to maximize return on ad spend.",
+      campaigns: [
+        { name: "Meta Ad Scaling", result: "From $5k to $50k monthly spend at 4.2x ROAS", note: "Scaled profitably within 90 days" },
+        { name: "Google Shopping", result: "Reduced CPA by 54%", note: "For a leading e‑com brand" }
+      ]
+    },
+    coaching: {
+      title: "COACHING",
+      description: "One-on-one mentorship for founders and teams. Our 12-week growth sprint provides proven frameworks, accountability, and strategic guidance to accelerate your business.",
+      campaigns: [
+        { name: "Founder Growth Sprint", result: "3x revenue growth for 7 startups", note: "Weekly strategy calls + execution roadmap" },
+        { name: "Team Training", result: "42% faster sales closure", note: "Custom workshops aligned marketing & sales" }
+      ]
+    },
+    sales: {
+      title: "SALES ENABLEMENT",
+      description: "Equip your teams with tools, training, and sequences that close deals faster. CRM automation, objection-handling scripts, and sales playbooks designed for your industry.",
+      campaigns: [
+        { name: "CRM Automation", result: "Streamlined pipelines + 42% faster deal closure", note: "Reduced manual work by 60%" },
+        { name: "Objection Handling Scripts", result: "Boosted win rate from 23% to 51%", note: "In just 60 days" }
+      ]
+    }
+  };
+
+  function renderService(serviceKey) {
+    const data = servicesData[serviceKey];
+    if (!data) return;
+    const detailDiv = document.getElementById('serviceDetail');
+    detailDiv.innerHTML = `
+      <h3>${data.title}</h3>
+      <p>${data.description}</p>
+      <div class="results-preview">
+        <h4>📊 RESULTS PREVIEW</h4>
+        <div class="campaign-grid">
+          ${data.campaigns.map(campaign => `
+            <div class="campaign-card">
+              <h5>${campaign.name}</h5>
+              <p>${campaign.result}</p>
+              <div class="screenshot-placeholder">
+                <i class="fas fa-image"></i> SCREENSHOTS
+              </div>
+              <p style="font-size:0.75rem; margin-top:8px;">${campaign.note}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  const serviceItems = document.querySelectorAll('.service-item');
+  function setActiveService(activeKey) {
+    serviceItems.forEach(item => {
+      const key = item.getAttribute('data-service');
+      if (key === activeKey) item.classList.add('active');
+      else item.classList.remove('active');
+    });
+    renderService(activeKey);
+  }
+  serviceItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const key = item.getAttribute('data-service');
+      setActiveService(key);
+    });
+  });
+  // Initialize with Social Media
+  setActiveService('social');
+
+  // Header button alert (same as homepage)
+  document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
+</script>
+</body>
+</html>
