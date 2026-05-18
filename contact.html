@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Clientele Boosters | Contact Us</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== GLOBAL RESET & DARK THEME ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: #0a0c12;
+      color: #eef2ff;
+      line-height: 1.5;
+    }
+
+    /* ========== HEADER (with sliding hover background) ========== */
+    .top-bar {
+      background: #0f1119;
+      border-bottom: 1px solid #1e2432;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+      position: relative;
+      z-index: 2;
+      padding: 8px 0;
+    }
+
+    .nav-menu a:hover {
+      color: #ffffff;
+    }
+
+    .nav-slider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 32px;
+      background: rgba(240, 90, 40, 0.15);
+      border-radius: 40px;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .header-btn {
+      background: #f05a28;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .header-btn:hover {
+      background: #d44a1a;
+      transform: translateY(-2px);
+    }
+
+    /* ========== CONTACT PAGE MAIN CONTENT ========== */
+    .contact-hero {
+      text-align: center;
+      padding: 60px 32px 40px;
+    }
+
+    .contact-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .contact-hero p {
+      color: #b9c3d9;
+      font-size: 1rem;
+    }
+
+    .contact-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 32px 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    /* Left side: contact info + brand panel */
+    .contact-left {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
+    .info-card {
+      background: #11161f;
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid #2a3142;
+      margin-bottom: 40px;
+    }
+
+    .info-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f05a28;
+      margin-bottom: 24px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-item i {
+      width: 40px;
+      height: 40px;
+      background: rgba(240, 90, 40, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #f05a28;
+    }
+
+    .info-item .details {
+      flex: 1;
+    }
+
+    .info-item .details h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #9aa9c1;
+      margin-bottom: 4px;
+    }
+
+    .info-item .details p, .info-item .details a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .brand-panel {
+      background: linear-gradient(145deg, #11161f 0%, #0e121b 100%);
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid #2a3142;
+    }
+
+    .brand-panel h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #f05a28);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .brand-hours {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 16px 0;
+      color: #cbd5e6;
+    }
+
+    .brand-mission {
+      color: #b9c3d9;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    /* Right side: contact form */
+    .contact-right {
+      flex: 1.8;
+      min-width: 320px;
+    }
+
+    .form-card {
+      background: #11161f;
+      border-radius: 32px;
+      padding: 40px;
+      border: 1px solid #2a3142;
+    }
+
+    .form-card h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .form-card > p {
+      color: #b9c3d9;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #cbd5e6;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: #0a0c12;
+      border: 1px solid #2a3142;
+      border-radius: 24px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #f05a28;
+    }
+
+    .required-star {
+      color: #f05a28;
+    }
+
+    .account-note {
+      background: #0a0c12;
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin: 20px 0;
+      font-size: 0.85rem;
+      color: #9aa9c1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .account-note i {
+      color: #f05a28;
+    }
+
+    .account-note a {
+      color: #f05a28;
+      text-decoration: none;
+    }
+
+    .btn-submit {
+      background: #f05a28;
+      color: #0a0c12;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.2s;
+      margin-top: 16px;
+    }
+
+    .btn-submit:hover {
+      background: #d44a1a;
+      transform: translateY(-2px);
+    }
+
+    /* Location mini card (duplicate from footer but matching image) */
+    .location-mini {
+      background: #11161f;
+      border-radius: 32px;
+      padding: 32px;
+      margin-top: 40px;
+      text-align: center;
+      border: 1px solid #2a3142;
+    }
+
+    .location-mini h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f05a28;
+      margin-bottom: 16px;
+    }
+
+    .location-mini .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0;
+      color: #cbd5e6;
+    }
+
+    /* ========== FOOTER (same as homepage) ========== */
+    .footer {
+      background: #0f1119;
+      border-top: 1px solid #1e2432;
+      padding: 60px 32px 30px;
+    }
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-col h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #f05a28);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 16px;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    .footer-col h4:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #f05a28;
+      border-radius: 2px;
+    }
+    .footer-hours {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      color: #cbd5e6;
+    }
+    .footer-hours i {
+      color: #f05a28;
+      width: 24px;
+    }
+    .footer-mission {
+      color: #b9c3d9;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    .footer-services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+    }
+    .footer-services-list li {
+      font-size: 0.9rem;
+      color: #cbd5e6;
+      transition: 0.2s;
+    }
+    .footer-services-list li:hover {
+      color: #f05a28;
+      transform: translateX(3px);
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: #cbd5e6;
+    }
+    .footer-contact-item i {
+      color: #f05a28;
+      width: 24px;
+    }
+    .footer-contact-item a {
+      color: #cbd5e6;
+      text-decoration: none;
+    }
+    .footer-contact-item a:hover {
+      color: #f05a28;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #1e2432;
+      font-size: 0.85rem;
+      color: #7e8aa2;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .top-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-menu {
+        justify-content: center;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+      .footer-services-list {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        gap: 32px;
+      }
+    }
+    @media (max-width: 550px) {
+      .contact-hero h1 {
+        font-size: 2.2rem;
+      }
+      .form-card {
+        padding: 24px;
+      }
+      .info-card, .brand-panel, .location-mini {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER WITH SLIDING HOVER -->
+<div class="top-bar">
+  <div class="logo-area">
+    <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
+  </div>
+  <div class="nav-menu" id="navMenu">
+    <div class="nav-slider" id="navSlider"></div>
+    <a href="index.html">HOME</a>
+    <a href="services.html">SERVICES</a>
+    <a href="#">PROJECTS</a>
+    <a href="contact.html" style="color:#f05a28;">CONTACT US</a>
+  </div>
+  <div>
+    <button class="header-btn" id="headerContactBtn">Get in Touch →</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="contact-hero">
+  <h1>CONTACT</h1>
+  <p>We'd love to hear from you. Reach out anytime.</p>
+</div>
+
+<div class="contact-container">
+  <!-- LEFT COLUMN: Contact Info + Brand Panel -->
+  <div class="contact-left">
+    <div class="info-card">
+      <h3>CONTACT US</h3>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="details">
+          <h4>Address</h4>
+          <p>Melbourne, VIC</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone-alt"></i>
+        <div class="details">
+          <h4>Phone</h4>
+          <p>+61 2 7238 2014</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <div class="details">
+          <h4>Email</h4>
+          <a href="mailto:damiokedara@clienteleboosters.net">damiokedara@clienteleboosters.net</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand-panel">
+      <h3>CLIENTELE BOOSTERS</h3>
+      <div class="brand-hours"><i class="fas fa-clock"></i> Monday – Sunday – 24/7</div>
+      <div class="brand-mission">
+        Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: Contact Form -->
+  <div class="contact-right">
+    <div class="form-card">
+      <h2>LET'S GET IN TOUCH!</h2>
+      <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+      <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you soon.'); this.reset();">
+        <div class="form-group">
+          <label>Email <span class="required-star">*</span></label>
+          <input type="email" name="email" placeholder="Your email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" name="subject" placeholder="How can we help?">
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" name="message" placeholder="Tell us about your project or inquiry..."></textarea>
+        </div>
+
+        <div class="account-note">
+          <i class="fas fa-user-circle"></i>
+          <span>martcollantes@gmail.com</span>
+          <span style="margin-left: auto;"><a href="#">Switch account</a></span>
+        </div>
+
+        <div class="account-note" style="background: none; padding-left: 0;">
+          <i class="fas fa-asterisk" style="font-size: 0.7rem;"></i>
+          <span>Indicates required question</span>
+        </div>
+
+        <button type="submit" class="btn-submit">Learn More →</button>
+      </form>
+    </div>
+
+    <!-- Mini location card (as seen in reference) -->
+    <div class="location-mini">
+      <h4>LOCATION</h4>
+      <div class="contact-row"><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</div>
+      <div class="contact-row"><i class="fas fa-phone-alt"></i> +61 4680 85516</div>
+      <div class="contact-row"><i class="fas fa-envelope"></i> damiokedara@clienteleboosters.net</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER (matching homepage) -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>CLIENTELE BOOSTERS</h3>
+        <div class="footer-hours"><i class="fas fa-clock"></i> Monday – Sunday – 24/7</div>
+        <div class="footer-mission">Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.</div>
+      </div>
+      <div class="footer-col">
+        <h4>OUR SERVICES</h4>
+        <ul class="footer-services-list">
+          <li>Social Media Domination</li><li>Content Creation (End-to-End)</li><li>Precision Paid Ads</li>
+          <li>Full Funnel Development</li><li>Web/App Development</li><li>Virtual Assistants</li>
+          <li>Sales Enablement and Training</li><li>Strategic Consulting</li><li>Branded Episodic Content</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>LOCATION</h4>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Melbourne, VIC</div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:+61468655316">+61 468 655 316</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i> <a href="mailto:damiokedara@clienteleboosters.net">damiokedara@clienteleboosters.net</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Clientele Boosters – All rights reserved. Built with 💜 in Australia.</div>
+  </div>
+</footer>
+
+<script>
+  // Sliding hover effect for menu
+  const navMenu = document.getElementById('navMenu');
+  const slider = document.getElementById('navSlider');
+  const menuLinks = document.querySelectorAll('.nav-menu a');
+
+  function moveSliderToLink(link) {
+    if (!link) return;
+    const linkRect = link.getBoundingClientRect();
+    const navRect = navMenu.getBoundingClientRect();
+    const left = linkRect.left - navRect.left;
+    const width = linkRect.width;
+    slider.style.left = `${left}px`;
+    slider.style.width = `${width}px`;
+    slider.style.opacity = '1';
+  }
+
+  function hideSlider() {
+    slider.style.opacity = '0';
+  }
+
+  menuLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => moveSliderToLink(link));
+  });
+  navMenu.addEventListener('mouseleave', hideSlider);
+
+  // Set initial position (hidden)
+  if (menuLinks.length > 0) {
+    const firstLink = menuLinks[0];
+    const linkRect = firstLink.getBoundingClientRect();
+    const navRect = navMenu.getBoundingClientRect();
+    slider.style.left = `${linkRect.left - navRect.left}px`;
+    slider.style.width = `${linkRect.width}px`;
+    slider.style.opacity = '0';
+  }
+
+  // Header button alert
+  document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <title>Clientele Boosters | Think Mega – Dark</title>
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- Font Awesome Icons (for footer) -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* ========== GLOBAL RESET & DARK THEME ========== */
@@ -71,13 +71,12 @@
       color: #ffffff;
     }
 
-    /* Sliding background pill */
     .nav-slider {
       position: absolute;
       bottom: 0;
       left: 0;
       height: 32px;
-      background: rgb(240, 90, 40);
+      background: #f05a28;
       border-radius: 40px;
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       opacity: 0;
@@ -95,7 +94,6 @@
       font-size: 0.9rem;
       cursor: pointer;
       transition: 0.2s;
-      text-decoration: none;
       display: inline-block;
     }
 
@@ -104,9 +102,9 @@
       transform: translateY(-2px);
     }
 
-    /* ========== HERO SECTION WITH BOUNCE ANIMATIONS ========== */
+    /* ========== HERO SECTION WITH ENHANCED ANIMATED SHAPES ========== */
     .hero {
-      max-width: 1000px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 70px 32px 90px;
       text-align: center;
@@ -114,6 +112,133 @@
       background-image: radial-gradient(circle at 10% 20%, rgba(240, 90, 40, 0.08) 0%, rgba(0,0,0,0) 50%),
                         repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
       background-blend-mode: overlay;
+      overflow-x: clip;
+    }
+
+    /* Animated shapes container */
+    .hero-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Base shape styles - more visible colors & directional animations */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.35;
+    }
+
+    /* Horizontal bounce (left-right) */
+    .shape-1 {
+      width: 250px;
+      height: 250px;
+      top: 10%;
+      left: -80px;
+      background: radial-gradient(circle, #f05a28, #ff8c42);
+      animation: bounceHorizontal 12s ease-in-out infinite alternate;
+    }
+
+    /* Vertical bounce (up-down) */
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      bottom: 5%;
+      right: -60px;
+      background: radial-gradient(circle, #ffaa44, #ff8c42);
+      animation: bounceVertical 15s ease-in-out infinite alternate;
+      animation-delay: 1s;
+    }
+
+    /* Diagonal bounce (both axes) */
+    .shape-3 {
+      width: 160px;
+      height: 160px;
+      top: 40%;
+      left: -40px;
+      background: radial-gradient(circle, #44ccff, #2a9df4);
+      filter: blur(35px);
+      animation: bounceDiagonal 18s ease-in-out infinite alternate;
+      animation-delay: 2s;
+    }
+
+    /* Circular floating with rotation */
+    .shape-4 {
+      width: 220px;
+      height: 220px;
+      bottom: 15%;
+      right: -100px;
+      background: radial-gradient(circle, #ff44aa, #d42a7a);
+      filter: blur(45px);
+      animation: bounceCircle 20s ease-in-out infinite alternate;
+      animation-delay: 3s;
+    }
+
+    /* Triangle with diagonal bounce */
+    .shape-triangle {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgba(100, 200, 255, 0.3);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: blur(20px);
+      animation: bounceDiagonal 14s ease-in-out infinite alternate;
+      top: 60%;
+      left: -30px;
+    }
+    .shape-triangle-2 {
+      width: 90px;
+      height: 90px;
+      bottom: 20%;
+      right: -20px;
+      top: auto;
+      left: auto;
+      background: rgba(255, 100, 100, 0.3);
+      animation: bounceHorizontal 12s ease-in-out infinite alternate;
+      animation-delay: 1s;
+    }
+
+    /* Keyframes for different directional bounces */
+    @keyframes bounceHorizontal {
+      0% { transform: translateX(-50px); }
+      100% { transform: translateX(50px); }
+    }
+
+    @keyframes bounceVertical {
+      0% { transform: translateY(-40px); }
+      100% { transform: translateY(40px); }
+    }
+
+    @keyframes bounceDiagonal {
+      0% { transform: translate(-30px, -30px); }
+      100% { transform: translate(40px, 40px); }
+    }
+
+    @keyframes bounceCircle {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(30px, -20px) rotate(5deg); }
+      50% { transform: translate(-20px, 30px) rotate(-3deg); }
+      75% { transform: translate(20px, 20px) rotate(2deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    /* Hide on small screens */
+    @media (max-width: 768px) {
+      .shape, .shape-triangle {
+        opacity: 0.2;
+        transform: scale(0.7);
+      }
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-left h1 {
@@ -212,7 +337,7 @@
     }
     .email-form button:hover { background: #d44a1a; transform: scale(0.98); }
 
-    /* ========== BUILD YOUR CONNECTION SECTION (two columns) ========== */
+    /* ========== REST OF THE SECTIONS (unchanged, same as before) ========== */
     .connection-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -262,7 +387,6 @@
     }
     .btn-work:hover { background: #d44a1a; transform: translateY(-2px); }
 
-    /* ========== ENHANCED "MEGA COMMUNITIES IN ACTION" CARD ========== */
     .connection-right {
       flex: 0.9;
       background: linear-gradient(145deg, #11161f 0%, #0e121b 100%);
@@ -323,10 +447,7 @@
       backdrop-filter: blur(4px);
       transition: all 0.2s;
     }
-    .stat-badge span:first-child {
-      color: #f05a28;
-      font-size: 1.2rem;
-    }
+    .stat-badge span:first-child { color: #f05a28; font-size: 1.2rem; }
     .stat-number {
       font-size: 1.4rem;
       font-weight: 800;
@@ -362,7 +483,6 @@
       transform: translateY(0);
     }
 
-    /* ========== SERVICES TABS (6 tabs) ========== */
     .services-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -451,7 +571,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ========== COMMITMENT & CORE VALUES (right side bounce) ========== */
     .commitment-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -537,7 +656,6 @@
       animation: none;
     }
 
-    /* ========== EMPOWERING SMES SECTION ========== */
     .empowering-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -576,7 +694,6 @@
       color: #cbd5e6;
     }
 
-    /* ========== ABOUT FOUNDER ========== */
     .about-founder-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -655,7 +772,6 @@
       font-size: 0.9rem;
     }
 
-    /* ========== VIDEO CAROUSEL ========== */
     .carousel-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -713,7 +829,6 @@
     .swiper-pagination-bullet { background: #cbd5e6; }
     .swiper-pagination-bullet-active { background: #f05a28; }
 
-    /* ========== TESTIMONIALS 2x2 GRID ========== */
     .testimonials-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -776,7 +891,6 @@
       font-weight: 500;
     }
 
-    /* ========== MEET OUR TEAM 3x3 ========== */
     .team-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -841,7 +955,6 @@
       font-weight: 500;
     }
 
-    /* ========== CONTACT FORM ========== */
     .form-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -933,7 +1046,6 @@
       transform: translateY(-2px);
     }
 
-    /* ========== FOOTER SECTION ========== */
     .footer {
       background: #0f1119;
       border-top: 1px solid #1e2432;
@@ -983,10 +1095,7 @@
       margin: 16px 0;
       color: #cbd5e6;
     }
-    .footer-hours i {
-      color: #f05a28;
-      width: 24px;
-    }
+    .footer-hours i { color: #f05a28; width: 24px; }
     .footer-mission {
       color: #b9c3d9;
       line-height: 1.6;
@@ -1025,9 +1134,7 @@
       text-decoration: none;
       transition: 0.2s;
     }
-    .footer-contact-item a:hover {
-      color: #f05a28;
-    }
+    .footer-contact-item a:hover { color: #f05a28; }
     .footer-bottom {
       text-align: center;
       padding-top: 30px;
@@ -1035,16 +1142,11 @@
       font-size: 0.85rem;
       color: #7e8aa2;
     }
-    @media (max-width: 800px) {
-      .footer-services-list {
-        grid-template-columns: 1fr;
-      }
-      .footer-grid {
-        gap: 32px;
-      }
-    }
 
-    /* ========== RESPONSIVE ========== */
+    @media (max-width: 800px) {
+      .footer-services-list { grid-template-columns: 1fr; }
+      .footer-grid { gap: 32px; }
+    }
     @media (max-width: 900px) {
       .hero-left h1 { font-size: 70px; white-space: normal; }
       .think-mega { font-size: 85px; white-space: normal; }
@@ -1082,25 +1184,33 @@
 </head>
 <body>
 
-<!-- HEADER WITH SLIDING HOVER BACKGROUND -->
+<!-- HEADER WITH SLIDING HOVER -->
 <div class="top-bar">
   <div class="logo-area">
     <img src="logo.png" alt="Clientele Boosters Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/150x45?text=CB';">
   </div>
   <div class="nav-menu" id="navMenu">
     <div class="nav-slider" id="navSlider"></div>
-    <a href="#">SERVICES</a>
+    <a href="services.html">SERVICES</a>
     <a href="#">PROJECTS</a>
     <a href="#">BLOGS</a>
-    <a href="#">CONTACT US</a>
+    <a href="contact.html">CONTACT US</a>
   </div>
   <div>
     <button class="header-btn" id="headerContactBtn">Get in Touch →</button>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- HERO WITH ENHANCED ANIMATED SHAPES (directional bounce) -->
 <div class="hero">
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+    <div class="shape-triangle"></div>
+    <div class="shape-triangle shape-triangle-2"></div>
+  </div>
   <div class="hero-left">
     <h1>BUILD YOUR<br>BUSINESS</h1>
     <div class="think-mega">THINK MEGA</div>
@@ -1126,7 +1236,6 @@
       </p>
       <button class="btn-work" id="workWithUsBtn">WORK WITH US →</button>
     </div>
-    <!-- ENHANCED MEGA COMMUNITIES CARD -->
     <div class="connection-right animate-on-scroll" id="megaCommunityCard">
       <div class="right-icon">🌍</div>
       <div class="right-highlight">MEGA COMMUNITIES IN ACTION</div>
@@ -1295,31 +1404,21 @@
   </div>
 </div>
 
-<!-- ========== FOOTER ========== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-grid">
-      <!-- Column 1: Brand & Mission -->
       <div class="footer-col">
         <h3>CLIENTELE BOOSTERS</h3>
         <div class="footer-hours"><i class="fas fa-clock"></i> Monday – Sunday – 24/7</div>
-        <div class="footer-mission">
-          Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.
-        </div>
+        <div class="footer-mission">Empowering SMEs, Elevating Success. We're dedicated to transforming your business dreams into thriving realities.</div>
       </div>
-      <!-- Column 2: Our Services List (matching the image) -->
       <div class="footer-col">
         <h4>OUR SERVICES</h4>
         <ul class="footer-services-list">
-          <li>Social Media Domination</li>
-          <li>Content Creation (End-to-End)</li>
-          <li>Precision Paid Ads</li>
-          <li>Full Funnel Development</li>
-          <li>Web/App Development</li>
-          <li>Virtual Assistants</li>
-          <li>Sales Enablement and Training</li>
-          <li>Strategic Consulting</li>
-          <li>Branded Episodic Content</li>
+          <li>Social Media Domination</li><li>Content Creation (End-to-End)</li><li>Precision Paid Ads</li>
+          <li>Full Funnel Development</li><li>Web/App Development</li><li>Virtual Assistants</li>
+          <li>Sales Enablement and Training</li><li>Strategic Consulting</li><li>Branded Episodic Content</li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1329,53 +1428,37 @@
         <div class="footer-contact-item"><i class="fas fa-envelope"></i> <a href="mailto:damiokedara@clienteleboosters.net">damiokedara@clienteleboosters.net</a></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      © 2025 Clientele Boosters – All rights reserved. Built with 💜 in Australia.
-    </div>
+    <div class="footer-bottom">© 2025 Clientele Boosters – All rights reserved. Built with 💜 in Australia.</div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  // ========== SLIDING HOVER BACKGROUND FOR MENU ==========
+  // Sliding hover effect
   const navMenu = document.getElementById('navMenu');
   const slider = document.getElementById('navSlider');
   const menuLinks = document.querySelectorAll('.nav-menu a');
-
   function moveSliderToLink(link) {
     if (!link) return;
     const linkRect = link.getBoundingClientRect();
     const navRect = navMenu.getBoundingClientRect();
-    const left = linkRect.left - navRect.left;
-    const width = linkRect.width;
-    slider.style.left = `${left}px`;
-    slider.style.width = `${width}px`;
-    slider.style.opacity = '1';
-  }
-
-  function hideSlider() {
-    slider.style.opacity = '0';
-  }
-
-  menuLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => moveSliderToLink(link));
-  });
-
-  navMenu.addEventListener('mouseleave', hideSlider);
-
-  // Initialize slider position (optional, could remain hidden)
-  // For a subtle effect, we can set it to the first link on page load but hidden
-  if (menuLinks.length > 0) {
-    const firstLink = menuLinks[0];
-    const linkRect = firstLink.getBoundingClientRect();
-    const navRect = navMenu.getBoundingClientRect();
     slider.style.left = `${linkRect.left - navRect.left}px`;
     slider.style.width = `${linkRect.width}px`;
+    slider.style.opacity = '1';
+  }
+  function hideSlider() { slider.style.opacity = '0'; }
+  menuLinks.forEach(link => link.addEventListener('mouseenter', () => moveSliderToLink(link)));
+  navMenu.addEventListener('mouseleave', hideSlider);
+  if (menuLinks.length) {
+    const first = menuLinks[0];
+    const rect = first.getBoundingClientRect();
+    const navRect = navMenu.getBoundingClientRect();
+    slider.style.left = `${rect.left - navRect.left}px`;
+    slider.style.width = `${rect.width}px`;
     slider.style.opacity = '0';
   }
 
-  // ========== EXISTING SCRIPTS ==========
-  // Swiper Carousel
+  // Swiper
   const swiper = new Swiper('.videoSwiper', {
     loop: true, spaceBetween: 30, slidesPerView: 1,
     autoplay: { delay: 5000, disableOnInteraction: false },
@@ -1384,16 +1467,15 @@
     breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
   });
 
-  // Intersection Observer for Mega Communities counters
+  // Counter
   const card = document.getElementById('megaCommunityCard');
   let counted = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !counted) {
         counted = true;
-        const counters = document.querySelectorAll('#megaCommunityCard .stat-number');
-        counters.forEach(counter => {
-          const target = parseInt(counter.getAttribute('data-target'), 10);
+        document.querySelectorAll('#megaCommunityCard .stat-number').forEach(counter => {
+          const target = parseInt(counter.dataset.target, 10);
           let current = 0;
           const step = target / 35;
           const update = () => {
@@ -1401,9 +1483,7 @@
             if (current < target) {
               counter.innerText = Math.floor(current);
               requestAnimationFrame(update);
-            } else {
-              counter.innerText = target;
-            }
+            } else counter.innerText = target;
           };
           requestAnimationFrame(update);
         });
@@ -1412,49 +1492,24 @@
       }
     });
   }, { threshold: 0.2 });
-  
-  if (card) {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100 && !counted) {
-      counted = true;
-      const counters = document.querySelectorAll('#megaCommunityCard .stat-number');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'), 10);
-        let current = 0;
-        const step = target / 35;
-        const update = () => {
-          current += step;
-          if (current < target) {
-            counter.innerText = Math.floor(current);
-            requestAnimationFrame(update);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        requestAnimationFrame(update);
-      });
-      card.classList.add('visible');
-    } else {
-      observer.observe(card);
-    }
-  }
+  if (card) observer.observe(card);
 
   // Buttons
-  document.getElementById('sendBtn')?.addEventListener('click', function() {
+  document.getElementById('sendBtn')?.addEventListener('click', () => {
     const email = document.getElementById('magicEmail')?.value.trim();
-    alert(email ? `Thanks! We'll send magic to ${email}.` : "Please enter your email to receive marketing insights ✨");
+    alert(email ? `Thanks! We'll send magic to ${email}.` : "Please enter your email");
     if(email) document.getElementById('magicEmail').value = '';
   });
-  document.getElementById('workWithUsBtn')?.addEventListener('click', () => alert("Let's build your mega community! Our team will reach out shortly."));
-  document.getElementById('getInTouchBtn')?.addEventListener('click', () => alert("Thanks for reaching out! We'll get back to you within 24 hours."));
-  document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch! We'll contact you soon."));
+  document.getElementById('workWithUsBtn')?.addEventListener('click', () => alert("Let's build your mega community!"));
+  document.getElementById('getInTouchBtn')?.addEventListener('click', () => alert("Thanks for reaching out!"));
+  document.getElementById('headerContactBtn')?.addEventListener('click', () => alert("Get in touch!"));
 
-  // Tabs logic
+  // Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panes = document.querySelectorAll('.tab-pane');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
+      const tabId = btn.dataset.tab;
       tabBtns.forEach(b => b.classList.remove('active'));
       panes.forEach(p => p.classList.remove('active-pane'));
       btn.classList.add('active');
