@@ -102,7 +102,7 @@
       transform: translateY(-2px);
     }
 
-    /* ========== HERO SECTION WITH ENHANCED ANIMATED SHAPES ========== */
+    /* ========== HERO SECTION WITH ANIMATED SHAPES & SOCIAL ICONS ========== */
     .hero {
       max-width: 1600px;
       margin: 0 auto;
@@ -115,7 +115,7 @@
       overflow-x: clip;
     }
 
-    /* Animated shapes container */
+    /* Animated shapes & icons container */
     .hero-shapes {
       position: absolute;
       top: 0;
@@ -127,7 +127,7 @@
       overflow: hidden;
     }
 
-    /* Base shape styles - more visible colors & directional animations */
+    /* Base shape styles */
     .shape {
       position: absolute;
       border-radius: 50%;
@@ -135,7 +135,6 @@
       opacity: 0.35;
     }
 
-    /* Horizontal bounce (left-right) */
     .shape-1 {
       width: 250px;
       height: 250px;
@@ -145,7 +144,6 @@
       animation: bounceHorizontal 12s ease-in-out infinite alternate;
     }
 
-    /* Vertical bounce (up-down) */
     .shape-2 {
       width: 200px;
       height: 200px;
@@ -156,7 +154,6 @@
       animation-delay: 1s;
     }
 
-    /* Diagonal bounce (both axes) */
     .shape-3 {
       width: 160px;
       height: 160px;
@@ -168,7 +165,6 @@
       animation-delay: 2s;
     }
 
-    /* Circular floating with rotation */
     .shape-4 {
       width: 220px;
       height: 220px;
@@ -180,7 +176,6 @@
       animation-delay: 3s;
     }
 
-    /* Triangle with diagonal bounce */
     .shape-triangle {
       position: absolute;
       width: 120px;
@@ -204,36 +199,68 @@
       animation-delay: 1s;
     }
 
-    /* Keyframes for different directional bounces */
+    /* Social Media Icons - New animated elements */
+    .social-icon {
+      position: absolute;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.6);
+      text-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+      filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+      z-index: 1;
+    }
+    /* Individual icon colors */
+    .social-icon .fab.fa-facebook-f { color: #1877f2; }
+    .social-icon .fab.fa-instagram { color: #e4405f; }
+    .social-icon .fab.fa-twitter { color: #1da1f2; }
+    .social-icon .fab.fa-linkedin-in { color: #0077b5; }
+    .social-icon .fab.fa-tiktok { color: #000000; text-shadow: 0 0 2px #69c9d0; }
+    .social-icon .fab.fa-youtube { color: #ff0000; }
+    .social-icon .fab.fa-pinterest { color: #bd081c; }
+    .social-icon .fab.fa-snapchat { color: #fffc00; text-shadow: 0 0 2px #000; }
+
+    /* Individual animations */
+    .icon-1 { top: 12%; left: 5%; animation: floatRotate 14s infinite alternate; }
+    .icon-2 { top: 70%; left: 3%; animation: bounceVertical 12s infinite alternate; animation-delay: 0.5s; }
+    .icon-3 { top: 20%; right: 8%; animation: bounceDiagonal 16s infinite alternate; animation-delay: 1s; }
+    .icon-4 { bottom: 15%; right: 5%; animation: floatRotate 18s infinite alternate; animation-delay: 2s; }
+    .icon-5 { top: 45%; left: 10%; animation: bounceHorizontal 15s infinite alternate; animation-delay: 0.8s; }
+    .icon-6 { bottom: 35%; right: 12%; animation: bounceCircle 20s infinite alternate; animation-delay: 1.5s; }
+    .icon-7 { top: 80%; left: 20%; animation: floatRotate 13s infinite alternate; animation-delay: 0.3s; }
+    .icon-8 { top: 30%; right: 18%; animation: bounceVertical 17s infinite alternate; animation-delay: 2.5s; }
+
+    @keyframes floatRotate {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(20px, -20px) rotate(10deg); }
+    }
+
     @keyframes bounceHorizontal {
-      0% { transform: translateX(-50px); }
-      100% { transform: translateX(50px); }
+      0% { transform: translateX(-30px); }
+      100% { transform: translateX(30px); }
     }
 
     @keyframes bounceVertical {
-      0% { transform: translateY(-40px); }
-      100% { transform: translateY(40px); }
+      0% { transform: translateY(-20px); }
+      100% { transform: translateY(20px); }
     }
 
     @keyframes bounceDiagonal {
-      0% { transform: translate(-30px, -30px); }
-      100% { transform: translate(40px, 40px); }
+      0% { transform: translate(-20px, -20px); }
+      100% { transform: translate(30px, 30px); }
     }
 
     @keyframes bounceCircle {
       0% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(30px, -20px) rotate(5deg); }
-      50% { transform: translate(-20px, 30px) rotate(-3deg); }
-      75% { transform: translate(20px, 20px) rotate(2deg); }
+      25% { transform: translate(15px, -10px) rotate(5deg); }
+      50% { transform: translate(-10px, 20px) rotate(-3deg); }
+      75% { transform: translate(10px, 10px) rotate(2deg); }
       100% { transform: translate(0, 0) rotate(0deg); }
     }
 
-    /* Hide on small screens */
+    /* Responsive adjustments for icons */
     @media (max-width: 768px) {
-      .shape, .shape-triangle {
-        opacity: 0.2;
-        transform: scale(0.7);
-      }
+      .social-icon { font-size: 1.5rem; opacity: 0.5; }
+      .icon-1, .icon-2, .icon-3, .icon-4, .icon-5, .icon-6, .icon-7, .icon-8 { transform: scale(0.8); }
     }
 
     .hero-left {
@@ -337,7 +364,7 @@
     }
     .email-form button:hover { background: #d44a1a; transform: scale(0.98); }
 
-    /* ========== REST OF THE SECTIONS (unchanged, same as before) ========== */
+    /* ========== REST OF THE SECTIONS (unchanged) ========== */
     .connection-section {
       background: #0a0c12;
       padding: 70px 32px;
@@ -1201,16 +1228,28 @@
   </div>
 </div>
 
-<!-- HERO WITH ENHANCED ANIMATED SHAPES (directional bounce) -->
+<!-- HERO WITH ANIMATED SHAPES AND SOCIAL MEDIA ICONS -->
 <div class="hero">
   <div class="hero-shapes">
+    <!-- Abstract shapes -->
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
     <div class="shape shape-4"></div>
     <div class="shape-triangle"></div>
     <div class="shape-triangle shape-triangle-2"></div>
+
+    <!-- Social Media Icons -->
+    <div class="social-icon icon-1"><i class="fab fa-facebook-f"></i></div>
+    <div class="social-icon icon-2"><i class="fab fa-instagram"></i></div>
+    <div class="social-icon icon-3"><i class="fab fa-twitter"></i></div>
+    <div class="social-icon icon-4"><i class="fab fa-linkedin-in"></i></div>
+    <div class="social-icon icon-5"><i class="fab fa-tiktok"></i></div>
+    <div class="social-icon icon-6"><i class="fab fa-youtube"></i></div>
+    <div class="social-icon icon-7"><i class="fab fa-pinterest"></i></div>
+    <div class="social-icon icon-8"><i class="fab fa-snapchat"></i></div>
   </div>
+
   <div class="hero-left">
     <h1>BUILD YOUR<br>BUSINESS</h1>
     <div class="think-mega">THINK MEGA</div>
